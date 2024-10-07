@@ -5,6 +5,16 @@ import { Link } from "react-router-dom";
 const Navbar = ({ connectHandler, provider, account }) => {
   return (
     <nav>
+      {!account ? (
+        <div className="w-full h-6 bg-green-300 text-center">
+          Connect to Amoy network{" "}
+          <a href="https://support.polygon.technology/support/solutions/articles/82000907114-how-to-add-amoy-network-in-your-wallet-">
+            Learn How
+          </a>
+        </div>
+      ) : (
+        <div></div>
+      )}
       <div className="h-[4rem] w-full flex items-center justify-between px-12 border-b-[4px] border-gray-800 border-double bg-gradient-to-r from-gray-800 to-black">
         <div>
           <img src={logo} alt="brand logo" />
@@ -27,7 +37,9 @@ const Navbar = ({ connectHandler, provider, account }) => {
           </Link>
           <button onClick={connectHandler}>
             <span className="text-white font-bold bg-blue-400 px-2 py-1 text-sm rounded-xl">
-              {provider ? account.slice(0, 6) + "..." + account.slice(38, 42): "Connect"}
+              {provider
+                ? account.slice(0, 6) + "..." + account.slice(38, 42)
+                : "Connect"}
             </span>
           </button>
         </div>
