@@ -25,7 +25,7 @@ const Index = ({
           />
         }
       >
-        <Route path="/" element={<Home />} index />
+        <Route path="/" element={<Home/>} index />
         <Route
           path="/explore"
           element={
